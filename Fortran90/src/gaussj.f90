@@ -1,6 +1,8 @@
 	SUBROUTINE gaussj(a,b)
+	
 	USE nrtype; USE nrutil, ONLY : assert_eq,nrerror,outerand,outerprod,swap
 	IMPLICIT NONE
+	
 	REAL(SP), DIMENSION(:,:), INTENT(INOUT) :: a,b
 	INTEGER(I4B), DIMENSION(size(a,1)) :: ipiv,indxr,indxc
 	LOGICAL(LGT), DIMENSION(size(a,1)) :: lpiv
@@ -9,6 +11,7 @@
 	INTEGER(I4B), TARGET :: irc(2)
 	INTEGER(I4B) :: i,l,n
 	INTEGER(I4B), POINTER :: irow,icol
+	
 	n=assert_eq(size(a,1),size(a,2),size(b,1),'gaussj')
 	irow => irc(1)
 	icol => irc(2)
